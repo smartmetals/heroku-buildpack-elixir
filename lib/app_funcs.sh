@@ -51,7 +51,7 @@ function hook_pre_compile() {
 
   if [ -n "$hook_pre_compile" ]; then
     output_section "Executing hook before compile: $hook_pre_compile"
-    $hook_pre_compile || exit 1
+    (eval "$hook_pre_compile") || exit 1
   fi
 
   cd - > /dev/null
